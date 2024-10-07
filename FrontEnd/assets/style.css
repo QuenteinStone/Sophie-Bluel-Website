@@ -137,6 +137,35 @@ li:hover {
 	width: 100%;
 
 }
+
+#categories-menu {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#categories-menu button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #1D6154;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#categories-menu button:hover {
+    background-color: #626467;
+}
+
+
+.work-item {
+    margin: 10px;
+    text-align: center;
+}
+
+
+
 #contact {
 	width: 50%;
 margin: auto;
