@@ -11,6 +11,36 @@
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+<button class="btn btn-open"><img src="/FrontEnd/assets/images/Vector.png" alt="edit"> Editing Mode</button>
+<!-- Modal Structure -->
+<!-- Modal for displaying all projects -->
+<div class="modal hidden" id="projects-modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>My Projects</h2>
+        <div id="projects-gallery"></div>
+        <button id="add-photo-button">Add a Photo</button>
+    </div>
+</div>
+<!-- Modal for adding projects -->
+<div class="modal hidden" id="add-project-modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Add New Project</h2>
+        <form id="add-project-form">
+            <label for="project-title">Title</label>
+            <input type="text" id="project-title" required>
+
+            <label for="project-image">Image URL</label>
+            <input type="text" id="project-image" required>
+
+            <input type="submit" value="Add Project">
+        </form>
+    </div>
+</div>
+
+
+
 <header>
 	<h1>Sophie Bluel <span>Interior Designer</span></h1>
 	<nav>
@@ -184,8 +214,154 @@
         displayData(filteredData); // Display filtered data
     }
 
+// Simulate a login check 
+let isLoggedIn = true; // Change to true after successful login
+
+// Show or hide the editing button based on login status
+if (isLoggedIn) {
+    document.querySelector('.btn-open').style.display = 'block';
+} else {
+    document.querySelector('.btn-open').style.display = 'none';
+}
+
+// Open projects modal when the edit button is clicked
+document.querySelector('.btn-open').onclick = function() {
+    document.getElementById('projects-modal').classList.remove('hidden');
+    displayProjects(); // Display projects in the modal
+};
+
+// Close modal when the close button is clicked
+document.querySelectorAll('.close-button').forEach(button => {
+    button.onclick = function() {
+        this.closest('.modal').classList.add('hidden');
+    };
+});
+
+// Close modal when clicking outside of the modal content
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+};
+
+// Function to display all projects in the projects modal
+async function displayProjects() {
+    const url = "http://localhost:5678/api/works";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const json = await response.json();
+        const projectsGallery = document.getElementById('projects-gallery');
+        projectsGallery.innerHTML = ''; // Clear previous content
+
+        json.forEach(item => {
+            const projectItem = document.createElement('div');
+            projectItem.className = 'project-item';
+            projectItem.innerHTML = `
+                <img src="${item.imageUrl}" alt="${item.title}">
+                <h3>${item.title}</h3>
+                <button class="delete-button" data-id="${item.id}">Delete</button>
+            `;
+            projectsGallery.appendChild(projectItem);
+        });
+
+        // Add event listeners for delete buttons
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.onclick = async function() {
+                const id = this.getAttribute('data-id');
+                await deleteProject(id);
+            };
+        });
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+// Function to delete a project
+async function deleteProject(id) {
+    const url = `http://localhost:5678/api/works/${id}`;
+    try {
+        const response = await fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+            }
+        });
+
+        if (response.ok) {
+            // Remove the project from the DOM
+            const projectItem = document.querySelector(`.delete-button[data-id="${id}"]`).closest('.project-item');
+            projectItem.remove();
+        } else {
+            console.error('Failed to delete project');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Handle the "Add a Photo" button to open the add project modal
+document.getElementById('add-photo-button').onclick = function() {
+    document.getElementById('projects-modal').classList.add('hidden');
+    document.getElementById('add-project-modal').classList.remove('hidden');
+};
+
+
+document.getElementById('add-project-form').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const title = document.getElementById('project-title').value;
+    const imageUrl = document.getElementById('project-image').value;
+
+    try {
+        const response = await fetch('http://localhost:5678/api/works', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+            },
+            body: JSON.stringify({ title, imageUrl })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to add project');
+        }
+
+        const newProject = await response.json();
+        addProjectToGallery(newProject); // Add the new project to the gallery
+        document.getElementById('add-project-modal').classList.add('hidden'); // Close the modal
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+function addProjectToGallery(project) {
+    const container = document.getElementById('gallery');
+    const workItem = document.createElement('div');
+    workItem.className = 'work-item';
+
+    workItem.innerHTML = `
+        <h3>${project.title}</h3>
+        <img src="${project.imageUrl}" alt="${project.title}">
+        <button class="delete-button" data-id="${project.id}">Delete</button>
+    `;
+
+    container.appendChild(workItem);
+}
+
+
+
     // Call the getData function to fetch and display the data
     getData();
+
+
 </script>
+
 </body>
 </html>
