@@ -17,8 +17,9 @@
 <div class="modal hidden" id="projects-modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
-        <h2>My Projects</h2>
+        <h2>Photo Gallery</h2>
         <div id="projects-gallery"></div>
+        <img class="line" src="assets/images/Line.png" alt="Line">
         <button id="add-photo-button">Add a Photo</button>
     </div>
 </div>
@@ -261,12 +262,13 @@ async function displayProjects() {
         projectsGallery.innerHTML = ''; // Clear previous content
 
         json.forEach(item => {
-            const projectItem = document.createElement('div');
-            projectItem.className = 'project-item';
-            projectItem.innerHTML = `
-                <img src="${item.imageUrl}" alt="${item.title}">
-                <h3>${item.title}</h3>
-                <button class="delete-button" data-id="${item.id}">Delete</button>
+    const projectItem = document.createElement('div');
+    projectItem.className = 'project-item';
+    projectItem.innerHTML = `
+        <div class="image-wrapper">
+            <img src="${item.imageUrl}" alt="${item.title}">
+            <img src="assets/images/delete.png" class="delete-button" data-id="${item.id}" alt="Delete">
+        </div>
             `;
             projectsGallery.appendChild(projectItem);
         });

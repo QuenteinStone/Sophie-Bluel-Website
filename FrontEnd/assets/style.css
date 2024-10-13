@@ -298,10 +298,12 @@ footer nav ul {
 }
 
 .close-button {
-    color: #aaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
+	display: flex;
+	justify-content: right;
 }
 
 .close-button:hover,
@@ -310,5 +312,102 @@ footer nav ul {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Styles for the projects modal */
+#modal-content {
+    width: 630px; /* Set the width of the modal */
+    height: 688px; /* Set the height of the modal */
+    border-radius: 10px; /* Set the border radius */
+    overflow: hidden; /* Prevent overflow */
+}
+
+#projects-modal .modal-content {
+    padding: 20px; /* Add padding inside the modal */
+    height: 688px; 
+	width: 630px;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+}
+
+.modal-content h2 {
+	font: inherit;
+	font-weight: 400;
+	font-size: 26px;
+	color: black;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+
+}
+
+#projects-gallery {
+    display: flex;
+	flex-wrap: wrap;
+	margin-left: 80px;
+	margin-right: 80px;
+	margin-bottom: 70px;
+}
+
+.project-item {
+	height: 130px;
+}
+
+.image-wrapper {
+    position: relative;
+	width: 76.86px; /* Position relative to allow absolute positioning of the button */
+}
+
+.delete-button {
+    position: absolute; /* Position the delete icon absolutely */
+    top: 5px; /* Distance from the top */
+    right: 5px; /* Distance from the right */
+    width: 17px !important; /* Set the width of the delete icon */
+    height: 17px !important; /* Set the height of the delete icon */
+    cursor: pointer; /* Change cursor to pointer */
+    opacity: 0.8; /* Slightly transparent */
+}
+
+.image-wrapper {
+	margin: 5px;
+}
+
+.image-wrapper img {
+    width: 76.86px; /* Set image width */
+    height: 102.57px; /* Set image height */
+}
+
+
+.delete-button:hover {
+    opacity: 1; /* Fully visible on hover */
+}
+
+.line {
+	width: 420px;
+	border: 1px #B3B3B3;
+	display: flex;
+	justify-content: center;
+	margin-left: 105px;
+	margin-bottom: 70px;
+}
+
+
+#add-photo-button {
+	width: 193px;
+	height: 35px;
+    margin-top: 10px; /* Space above the button */
+	margin-left: 200px;
+    padding: 10px 20px; /* Button padding */
+    background-color: #1D6154; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 60px; /* Round the button corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+#add-photo-button:hover {
+    background-color: #B1663C; /* Change color on hover */
+}
+
 
 
