@@ -1,369 +1,399 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>Sophie Bluel - Interior Designer</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
-	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
+    <meta charset="UTF-8">
+    <title>Sophie Bluel - Interior Designer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-<button class="btn btn-open"><img src="/FrontEnd/assets/images/Vector.png" alt="edit"> Editing Mode</button>
-<!-- Modal Structure -->
-<!-- Modal for displaying all projects -->
-<div class="modal hidden" id="projects-modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Photo Gallery</h2>
-        <div id="projects-gallery"></div>
-        <img class="line" src="assets/images/Line.png" alt="Line">
-        <button id="add-photo-button">Add a Photo</button>
-    </div>
-</div>
-<!-- Modal for adding projects -->
-<div class="modal hidden" id="add-project-modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Add New Project</h2>
-        <form id="add-project-form">
-            <label for="project-title">Title</label>
-            <input type="text" id="project-title" required>
-
-            <label for="project-image">Image URL</label>
-            <input type="text" id="project-image" required>
-
-            <input type="submit" value="Add Project">
-        </form>
-    </div>
-</div>
-
-
-
-<header>
-	<h1>Sophie Bluel <span>Interior Designer</span></h1>
-	<nav>
-		<ul>
-			<li><a href="index.html">projects</a></li>
-			<li><a href="#contact">contact</a></li>
-			<li><a href="login.html">login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
-</header>
-<main>
-	<section id="introduction">
-		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="">
-		</figure>
-		<article>
-			<h2>Space Designer</h2>
-			<p>I tell your story and bring your ideas to life. I work with you every step of the way—from the design stage until the very end of the project.</p>
-			<p>Together, we’ll decide on the volumes, materials, and colors, while maintaining the space’s character and selection of materials. Every single aspect of the project will be thoroughly monitored, ensuring it remains on schedule and on budget.</p>
-			<p>If necessary, a multidisciplinary team can be brought into your project, including an accredited architect and a decorator.</p>
-		</article>
-	</section>
-	<section id="portfolio">
-		<h2>My Projects</h2>
-		<div id="categories-menu">
-			<button id="show-all">Show All</button>
-		</div>
-		<div class="gallery" id="gallery">
-			<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Tahina Lampshade">
-				<figcaption>Tahina Lampshade</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Paris V Appartment">
-				<figcaption>Paris V Appartment</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Sushisen Restaurant - London">
-				<figcaption>Sushisen Restaurant - London</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="La Balisière” Villa – Port-Louis">
-				<figcaption>“La Balisière” Villa – Port-Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Thermopolis Structures">
-				<figcaption>Thermopolis Structures</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Paris X Appartment">
-				<figcaption>Paris X Appartment</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Le Coteau” Pavillon - Cassis">
-				<figcaption>“Le Coteau” Pavillon - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Ferneze Villa - Elba">
-				<figcaption>Ferneze Villa - Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Paris XVIII Appartment">
-				<figcaption>Paris XVIII Appartment</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Lullaby” Bar - Paris">
-				<figcaption>“Lullaby” Bar - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>First Arte Hotel - New Delhi</figcaption>
-			</figure>
-		</div>
-	</section>
-	<section id="contact">
-		<h2>Contact</h2>
-		<p>Do you have a project in mind? Let’s talk about it!</p>
-		<form action="#" method="post">
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
-			<label for="message">Message</label>
-			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Send">
-		</form>
-	</section>
-</main>
-
-<footer>
-	<nav>
-		<ul>
-			<li>Legal Notice</li>
-		</ul>
-	</nav>
-</footer>
-
-<script>
-    async function getData() {
-        const url = "http://localhost:5678/api/works";
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Response status: ${response.status}`);
-            }
-
-            const json = await response.json();
-            console.log(json);
-
-            // Call the function to display the data
-            displayData(json);
-            generateCategoriesMenu(json); // Generate categories menu
-
-            // Add event listener for "Show All" button
-            document.getElementById('show-all').onclick = () => displayData(json);
-        } catch (error) {
-            console.error(error.message);
-        }
-    }
-
-    function displayData(data) {
-        const container = document.getElementById('gallery');
-        container.innerHTML = ''; // Clear previous content
-
-        data.forEach(item => {
-            const workItem = document.createElement('div');
-            workItem.className = 'work-item'; // Add a class for styling if needed
-
-            workItem.innerHTML = `
-                <h3>${item.title}</h3>
-                <img src="${item.imageUrl}" alt="${item.title}">
-            `;
-
-            container.appendChild(workItem);
-        });
-    }
-
-    function generateCategoriesMenu(data) {
-        const categoriesMap = {};
-
-        // Create a map of categories based on the API data
-        data.forEach(item => {
-            const categoryId = item.categoryId;
-            const categoryName = item.category.name;
-
-            if (!categoriesMap[categoryId]) {
-                categoriesMap[categoryId] = categoryName;
-            }
-        });
-
-        const categoriesContainer = document.getElementById('categories-menu');
-
-        // Clear previous categories
-        categoriesContainer.innerHTML = '<button id="show-all">Show All</button>'; // Reset with Show All button
-
-        // Create buttons for each category
-        Object.entries(categoriesMap).forEach(([categoryId, categoryName]) => {
-            const categoryItem = document.createElement('button');
-            categoryItem.innerText = categoryName; // Get category name from map
-            categoryItem.onclick = () => filterByCategory(parseInt(categoryId), data);
-            categoriesContainer.appendChild(categoryItem);
-        });
-
-        // Log the categories for debugging
-        console.log("Categories:", categoriesMap);
-    }
-
-    function filterByCategory(selectedCategoryId, allData) {
-        const filteredData = allData.filter(item => item.categoryId === selectedCategoryId);
-        displayData(filteredData); // Display filtered data
-    }
-
-// Simulate a login check 
-let isLoggedIn = true; // Change to true after successful login
-
-// Show or hide the editing button based on login status
-if (isLoggedIn) {
-    document.querySelector('.btn-open').style.display = 'block';
-} else {
-    document.querySelector('.btn-open').style.display = 'none';
-}
-
-// Open projects modal when the edit button is clicked
-document.querySelector('.btn-open').onclick = function() {
-    document.getElementById('projects-modal').classList.remove('hidden');
-    displayProjects(); // Display projects in the modal
-};
-
-// Close modal when the close button is clicked
-document.querySelectorAll('.close-button').forEach(button => {
-    button.onclick = function() {
-        this.closest('.modal').classList.add('hidden');
-    };
-});
-
-// Close modal when clicking outside of the modal content
-window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        if (event.target === modal) {
-            modal.classList.add('hidden');
-        }
-    });
-};
-
-// Function to display all projects in the projects modal
-async function displayProjects() {
-    const url = "http://localhost:5678/api/works";
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-
-        const json = await response.json();
-        const projectsGallery = document.getElementById('projects-gallery');
-        projectsGallery.innerHTML = ''; // Clear previous content
-
-        json.forEach(item => {
-    const projectItem = document.createElement('div');
-    projectItem.className = 'project-item';
-    projectItem.innerHTML = `
-        <div class="image-wrapper">
-            <img src="${item.imageUrl}" alt="${item.title}">
-            <img src="assets/images/delete.png" class="delete-button" data-id="${item.id}" alt="Delete">
+    <button class="btn btn-open"><img src="/FrontEnd/assets/images/Vector.png" alt="edit"> Editing Mode</button>
+    <!-- Modal Structure -->
+    <div class="modal hidden" id="projects-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Photo Gallery</h2>
+            <div id="projects-gallery"></div>
+            <img class="line" src="assets/images/Line.png" alt="Line">
+            <button id="add-photo-button">Add a Photo</button>
         </div>
-            `;
-            projectsGallery.appendChild(projectItem);
-        });
+    </div>
+    <div class="modal hidden" id="add-project-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 style="padding-top: 50px; padding-bottom: 20px;">Add Photo</h2>
+            <div class="add-photo-box">
+                <img src="assets/images/picture.png" alt="picture">
+                <img id="preview-image" src="assets/images/picture.png" alt="picture" style="display: none;">
+                <label for="project-image" class="add-photo-button">+ Add Photo</label>
+                <input type="file" id="project-image" accept="image/*" required style="display: none;">
+                <h5>jpg,png: max 4 MB</h5>
+            </div>
+            <form id="add-project-form">
+                <label for="project-title">Title</label>
+                <input type="text" id="project-title" required>
+                <label for="project-category">Category</label>
+                <select id="project-category" required>
+                    <!-- Categories will be populated here -->
+                </select>
+                <img class="line" src="assets/images/Line.png" alt="Line">
+                <input class="confirm" type="submit" value="confirm">
+            </form>
+        </div>
+    </div>
 
-        // Add event listeners for delete buttons
-        document.querySelectorAll('.delete-button').forEach(button => {
-            button.onclick = async function() {
-                const id = this.getAttribute('data-id');
-                await deleteProject(id);
-            };
-        });
-    } catch (error) {
-        console.error(error.message);
-    }
-}
+    <header>
+        <h1>Sophie Bluel <span>Interior Designer</span></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">projects</a></li>
+                <li><a href="#contact">contact</a></li>
+                <li><a href="login.html">login</a></li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="introduction">
+            <figure>
+                <img src="./assets/images/sophie-bluel.png" alt="">
+            </figure>
+            <article>
+                <h2>Space Designer</h2>
+                <p>I tell your story and bring your ideas to life. I work with you every step of the way—from the design stage until the very end of the project.</p>
+                <p>Together, we’ll decide on the volumes, materials, and colors, while maintaining the space’s character and selection of materials. Every single aspect of the project will be thoroughly monitored, ensuring it remains on schedule and on budget.</p>
+                <p>If necessary, a multidisciplinary team can be brought into your project, including an accredited architect and a decorator.</p>
+            </article>
+        </section>
+        <section id="portfolio">
+            <h2>My Projects</h2>
+            <div id="categories-menu">
+                <button id="show-all">Show All</button>
+            </div>
+            <div class="gallery" id="gallery">
+                <!-- Gallery items will be populated here -->
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Do you have a project in mind? Let’s talk about it!</p>
+            <form action="#" method="post">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </section>
+    </main>
 
-// Function to delete a project
-async function deleteProject(id) {
-    const url = `http://localhost:5678/api/works/${id}`;
-    try {
-        const response = await fetch(url, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    <footer>
+        <nav>
+            <ul>
+                <li>Legal Notice</li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        async function getData() {
+            const url = "http://localhost:5678/api/works";
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                const json = await response.json();
+                console.log(json);
+                displayData(json);
+                generateCategoriesMenu(json);
+                document.getElementById('show-all').onclick = () => displayData(json);
+            } catch (error) {
+                console.error(error.message);
             }
-        });
-
-        if (response.ok) {
-            // Remove the project from the DOM
-            const projectItem = document.querySelector(`.delete-button[data-id="${id}"]`).closest('.project-item');
-            projectItem.remove();
-        } else {
-            console.error('Failed to delete project');
         }
-    } catch (error) {
-        console.error('Error:', error);
-    }
+
+        function displayData(data) {
+            const container = document.getElementById('gallery');
+            container.innerHTML = ''; // Clear previous content
+
+            data.forEach(item => {
+                const workItem = document.createElement('div');
+                workItem.className = 'work-item';
+                workItem.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <img src="${item.imageUrl}" alt="${item.title}">
+                `;
+                container.appendChild(workItem);
+            });
+        }
+
+        function generateCategoriesMenu(data) {
+            const categoriesMap = {};
+            data.forEach(item => {
+                const categoryId = item.categoryId;
+                const categoryName = item.category.name;
+                if (!categoriesMap[categoryId]) {
+                    categoriesMap[categoryId] = categoryName;
+                }
+            });
+
+            const categoriesContainer = document.getElementById('categories-menu');
+            categoriesContainer.innerHTML = ''; // Reset the menu
+
+            Object.entries(categoriesMap).forEach(([categoryId, categoryName]) => {
+                const button = document.createElement('button');
+                button.textContent = categoryName;
+                button.onclick = () => filterByCategory(Number(categoryId), data);
+                categoriesContainer.appendChild(button);
+            });
+
+            const showAllButton = document.createElement('button');
+            showAllButton.id = 'show-all';
+            showAllButton.textContent = 'Show All';
+            showAllButton.onclick = () => displayData(data);
+            categoriesContainer.appendChild(showAllButton);
+        }
+
+        function filterByCategory(selectedCategoryId, allData) {
+            const filteredData = allData.filter(item => item.categoryId === selectedCategoryId);
+            displayData(filteredData);
+        }
+
+        function checkFormValidity() {
+            const title = document.getElementById('project-title').value.trim();
+            const categoryId = document.getElementById('project-category').value;
+            const imageFile = document.getElementById('project-image').files[0];
+            const confirmButton = document.querySelector('.confirm');
+
+            if (title && categoryId && imageFile) {
+                confirmButton.classList.add('enabled');
+                confirmButton.disabled = false;
+            } else {
+                confirmButton.classList.remove('enabled');
+                confirmButton.disabled = true;
+            }
+        }
+
+        // Get the form element
+const addProjectForm = document.getElementById('add-project-form');
+
+// Function to render a project
+function renderProject(project) {
+    const projectsContainer = document.getElementById('workItem');
+
+    // Create a new project element
+    const projectElement = document.createElement('div');
+    projectElement.classList.add('work-item'); // Add a class for styling
+
+
+    projectElement.innerHTML = `
+        <h3>${item.title}</h3>
+        <img src="${item.imageUrl}" alt="${item.title}">
+                `;
+
+    // Append the new project element to the container
+    projectsContainer.appendChild(projectElement);
 }
 
-// Handle the "Add a Photo" button to open the add project modal
-document.getElementById('add-photo-button').onclick = function() {
-    document.getElementById('projects-modal').classList.add('hidden');
-    document.getElementById('add-project-modal').classList.remove('hidden');
-};
+// Add an event listener for form submission
+addProjectForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-
-document.getElementById('add-project-form').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Prevent default form submission
-
+    // Get the values from the form inputs
     const title = document.getElementById('project-title').value;
-    const imageUrl = document.getElementById('project-image').value;
+    const categoryId = parseInt(document.getElementById('project-category').value, 10);
+    const imageFile = document.getElementById('project-image').files[0];
 
-    try {
-        const response = await fetch('http://localhost:5678/api/works', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append('image', imageFile); // Append the image file
+    formData.append('title', title); // Append the title
+    formData.append('category', categoryId); // Append the category ID
+
+    // Send the request to the API
+    fetch('http://localhost:5678/api/works', {
+        method: 'POST',
+        headers: {
                 'Authorization': `Bearer ${localStorage.getItem('authToken')}`
             },
-            body: JSON.stringify({ title, imageUrl })
-        });
-
+        body: formData,
+    })
+    .then(response => {
         if (!response.ok) {
-            throw new Error('Failed to add project');
+            throw new Error('Network response was not ok');
         }
-
-        const newProject = await response.json();
-        addProjectToGallery(newProject); // Add the new project to the gallery
-        document.getElementById('add-project-modal').classList.add('hidden'); // Close the modal
-    } catch (error) {
+        return response.json();
+    })
+    .then(data => {
+        console.log('Project added successfully:', data);
+        // Update the UI to show the new project
+        // Close the modal
+        document.getElementById('add-project-modal').style.display = 'none'; // Example to hide the modal
+    })
+    .catch(error => {
         console.error('Error:', error);
+        // Handle error (e.g., show an error message)
+    });
+});
+
+
+
+        // Event listeners for input fields
+        document.getElementById('project-title').addEventListener('input', checkFormValidity);
+        document.getElementById('project-category').addEventListener('change', checkFormValidity);
+        document.getElementById('project-image').addEventListener('change', checkFormValidity);
+
+        document.getElementById('project-image').addEventListener('change', function(event) {
+    const file = event.target.files[0]; // Get the selected file
+    const previewImage = document.getElementById('preview-image'); // Get the image element for preview
+    const addPhotoLabel = document.querySelector('.add-photo-button'); // Get the label for the file input
+    const instructions = document.querySelector('.add-photo-box h5'); // Get the instructions text
+
+    if (file) {
+        const reader = new FileReader(); // Create a FileReader to read the file
+        reader.onload = function(e) {
+            previewImage.src = e.target.result; // Set the src of the image to the file's data URL
+            previewImage.style.display = 'block'; // Show the image
+            addPhotoLabel.style.display = 'none'; // Hide the label
+            instructions.style.display = 'none'; // Hide the instructions
+            // Hide the default image (placeholder)
+            document.querySelector('.add-photo-box img').style.display = 'none'; // Hide the placeholder image
+        };
+        reader.readAsDataURL(file); // Read the file as a data URL
+    } else {
+        previewImage.style.display = 'none'; // Hide the image if no file is selected
+        addPhotoLabel.style.display = 'block'; // Show the label again
+        instructions.style.display = 'block'; // Show the instructions again
+        // Show the default image (placeholder)
+        document.querySelector('.add-photo-box img').style.display = 'block'; // Show the placeholder image
     }
 });
 
-function addProjectToGallery(project) {
-    const container = document.getElementById('gallery');
-    const workItem = document.createElement('div');
-    workItem.className = 'work-item';
 
-    workItem.innerHTML = `
-        <h3>${project.title}</h3>
-        <img src="${project.imageUrl}" alt="${project.title}">
-        <button class="delete-button" data-id="${project.id}">Delete</button>
-    `;
+         // Function to open the projects modal
+         document.querySelector('.btn-open').onclick = function() {
+            document.getElementById('projects-modal').classList.remove('hidden'); // Show the projects modal
+            displayProjects(); // Call function to display projects
+        };
 
-    container.appendChild(workItem);
-}
+        // Close modal when the close button is clicked
+        document.querySelectorAll('.close-button').forEach(button => {
+            button.onclick = function() {
+                this.closest('.modal').classList.add('hidden'); // Hide the modal
+            };
+        });
 
+        // Close modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.classList.add('hidden'); // Hide the modal
+                }
+            });
+        };
 
+        // Function to display all projects in the projects modal
+        async function displayProjects() {
+            const url = "http://localhost:5678/api/works";
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
 
-    // Call the getData function to fetch and display the data
-    getData();
+                const json = await response.json();
+                const projectsGallery = document.getElementById('projects-gallery');
+                projectsGallery.innerHTML = ''; // Clear previous content
 
+                json.forEach(item => {
+                    const projectItem = document.createElement('div');
+                    projectItem.className = 'project-item';
+                    projectItem.innerHTML = `
+                        <div class="image-wrapper">
+                            <img src="${item.imageUrl}" alt="${item.title}">
+                            <img src="assets/images/delete.png" class="delete-button" data-id="${item.id}" alt="Delete">
+                        </div>
+                    `;
+                    projectsGallery.appendChild(projectItem);
+                });
 
-</script>
+                // Add event listeners for delete buttons
+                document.querySelectorAll('.delete-button').forEach(button => {
+                    button.onclick = async function() {
+                        const id = this.getAttribute('data-id');
+                        await deleteProject(id);
+                    };
+                });
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
 
+        // Function to delete a project
+        async function deleteProject(id) {
+            const url = `http://localhost:5678/api/works/${id}`;
+            try {
+                const response = await fetch(url, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    }
+                });
+
+                if (response.ok) {
+                    // Remove the project from the DOM
+                    const projectItem = document.querySelector(`.delete-button[data-id="${id}"]`).closest('.project-item');
+                    projectItem.remove();
+                } else {
+                    console.error('Failed to delete project');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Handle the "Add a Photo" button to open the add project modal
+        document.getElementById('add-photo-button').onclick = function() {
+            document.getElementById('projects-modal').classList.add('hidden');
+            document.getElementById('add-project-modal').classList.remove('hidden');
+            populateCategoryMenu(); // Populate categories when opening the modal
+        };
+
+        async function populateCategoryMenu() {
+            const url = "http://localhost:5678/api/categories";
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
+                }
+
+                const categories = await response.json();
+                const categorySelect = document.getElementById('project-category');
+                categorySelect.innerHTML = ''; // Clear previous options
+
+                categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category.id;
+                    option.textContent = category.name;
+                    categorySelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        }
+
+        // Call the getData function to fetch and display the data
+        getData();
+    </script>
 </body>
 </html>
+

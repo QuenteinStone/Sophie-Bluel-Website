@@ -290,11 +290,12 @@ footer nav ul {
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    background-color: #ffffff;
+	width: 630px;
+	height: 670px;
+	margin-top: 660px;
+	margin-left: 405px;
+	border-radius: 10px;
 }
 
 .close-button {
@@ -319,6 +320,8 @@ footer nav ul {
     height: 688px; /* Set the height of the modal */
     border-radius: 10px; /* Set the border radius */
     overflow: hidden; /* Prevent overflow */
+	margin-top: 660px;
+	margin-left: 405px;
 }
 
 #projects-modal .modal-content {
@@ -407,6 +410,111 @@ footer nav ul {
 
 #add-photo-button:hover {
     background-color: #B1663C; /* Change color on hover */
+}
+
+.add-photo-box {
+	width: 420px;
+	height: 169px;
+	background-color: #E8F1F6;
+	display: inline-grid;
+	justify-content: center;
+	margin-left: 105px;
+	position: relative;
+}
+
+.add-photo-box img {
+	width: 76px;
+	height: 76px;
+	padding-left: 60px;
+}
+
+.add-photo-box #preview-image {
+    width: auto; /* Maintain aspect ratio */
+    height: 100%; /* Fit to the height of the add photo box */
+    display: none; /* Initially hidden */
+    position: absolute; /* Position absolutely within the box */
+    top: 0; /* Align to the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the image */
+}
+
+.add-photo-button {
+    display: inline-block;/* Make it behave like a button */
+	width: 153px;
+	height: 15px;
+    padding: 10px 20px; /* Add some padding */
+    background-color: #CBD6DC; /* Background color */
+    color: #306685;/* Text color */
+    border: none; /* Remove border */
+    border-radius: 50px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    text-align: center; /* Center the text */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-photo-button:hover {
+    background-color: #B3B3B3 ; /* Change color on hover */
+}
+
+.add-photo-box h5 {
+	padding-left: 40px;
+}
+
+.modal-content form {
+	display: flex;
+	flex-direction: column;
+	padding-left: 105px;
+	margin-top: 30px;
+}
+
+.modal-content  input {
+	height: 50px;
+	width: 420px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.modal-content  select {
+	height: 50px;
+	width: 420px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#project-title {
+	margin-top: 5px;
+}
+
+#add-project-form label {
+	margin-top: 30px;
+}
+
+#project-category {
+	margin-top: 5px;
+}
+
+#add-project-form img.line {
+	width: 420px;
+	border: 1px;
+	margin-left: 0px;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+
+input.confirm {
+    margin-left: 90px;
+    width: 237px;
+    height: 44px;
+    background-color: #B3B3B3; /* Default color (disabled) */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+    transition: background-color 0.3s;
+}
+
+.confirm.enabled {
+    background-color: #1D6154; /* Green color when enabled */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
 
