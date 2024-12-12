@@ -187,7 +187,7 @@ const addProjectForm = document.getElementById('add-project-form');
 
 // Function to render a project
 function renderProject(project) {
-    const projectsContainer = document.getElementById('workItem');
+    const projectsContainer = document.getElementById('gallery');
 
     // Create a new project element
     const projectElement = document.createElement('div');
@@ -195,8 +195,8 @@ function renderProject(project) {
 
 
     projectElement.innerHTML = `
-        <h3>${item.title}</h3>
-        <img src="${item.imageUrl}" alt="${item.title}">
+        <h3>${project.title}</h3>
+        <img src="${project.imageUrl}" alt="${project.title}">
                 `;
 
     // Append the new project element to the container
@@ -235,6 +235,7 @@ addProjectForm.addEventListener('submit', function(event) {
     .then(data => {
         console.log('Project added successfully:', data);
         // Update the UI to show the new project
+        renderProject(data)
         // Close the modal
         document.getElementById('add-project-modal').style.display = 'none'; // Example to hide the modal
     })
